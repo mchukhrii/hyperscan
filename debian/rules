@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+DESTDIR=$(CURDIR)/debian/hyperscan
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	cmake .
+	make
+
+override_dh_auto_install:
+	mkdir -p ${DESTDIR}/usr/lib
+	mkdir -p ${DESTDIR}/usr/include/hs/
+	cp -a $(CURDIR)/lib/libhs.a ${DESTDIR}/usr/lib
+	cp -a $(CURDIR)/src/hs.h ${DESTDIR}/usr/include/hs/
+	cp -a $(CURDIR)/src/hs_common.h ${DESTDIR}/usr/include/hs/
+	cp -a $(CURDIR)/src/hs_compile.h ${DESTDIR}/usr/include/hs/
+	cp -a $(CURDIR)/src/hs_runtime.h ${DESTDIR}/usr/include/hs/

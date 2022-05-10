@@ -1,0 +1,16 @@
+Source: hyperscan
+Priority: optional
+Maintainer: maintainer <hyperscan@intel.com>
+Build-Depends: libboost-dev
+Standards-Version: 4.2.1
+Rules-Requires-Root: no
+Section: libs
+Homepage: www.hyperscan.io
+
+Package: hyperscan
+Section: libs
+Architecture: amd64 arm64 armhf i386 ppc64el
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Hyperscan for ARM aarch64
+ Port of Hyperscan to aarch64 pulled from repo
+ https://github.com/tqltech/hyperscan
